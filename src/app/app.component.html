@@ -1,0 +1,48 @@
+<main>
+    <p-tabView (onChange)="atualizarGrafico()">
+        <p-tabPanel header="Receitas e Despesas">
+            <p-card
+            header="Receitas e Despesas"
+            subheader="Suas receitas e despesas">
+
+            <form #receitaForm="ngForm" (ngSubmit)="adicionar(receitaForm)">
+
+                <span class="p-float-label">
+                    <input type="text" id="float-input" pInputText name="receita" ngModel>
+                    <label for="float-input">Insira aqui o valor</label>
+                </span>
+
+                <div class="adicionar-botao">
+                    <p-button label="Adicionar" type="submit" icon="pi pi-check"></p-button>
+                </div>
+
+            </form>
+
+            <div class="receita" *ngFor="let receita of receitas">
+                <p-card>
+                    <div class="conteudo-receita">
+                        <p>{{receita.descricao}}</p>
+                        <p-selectButton
+                        [options]="opcoes"
+                        optionLabel="rotulo"
+                        optionValue="valor"
+                        [(ngModel)]="receita.finalizada"
+                        >
+                        
+                    </p-selectButton>
+                    </div>
+                </p-card>
+            </div>
+
+            </p-card>
+    
+        </p-tabPanel>
+    
+        <p-tabPanel header="Gráfico">
+    
+            <p-chart type="doughnut" [data]="dados">
+                
+            </p-chart>
+        </p-tabPanel>
+    </p-tabView>
+</main>

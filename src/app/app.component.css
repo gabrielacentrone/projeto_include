@@ -1,0 +1,23 @@
+main{
+    width: 40%;
+    margin: auto;
+}
+
+span, input{
+    width: 100%
+}
+
+.adicionar-botao{
+    display: flex;
+    justify-content: flex-end;
+    margin: 12px 0;
+}
+
+.receita{
+    margin-bottom: 4px;
+}
+
+.conteudo-receita{
+    font-size: 22px;
+    text-align: center;
+}
